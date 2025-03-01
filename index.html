@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    Odin Library
-    <div class="book-container">
-        <div class="book-card">
-            <h2>Book Title</h2>
-            <h3>Author</h3>
-            <p>Pages</p>
-        </div>
-    </div>
+    <button id="new-book-btn">New Book...</button>
+    <div class="book-container"></div>
+    <dialog id="new-book-modal">
+        <form>
+            <input id="title" type="text" name="title" placeholder="Title" required>
+            <input id="author" type="text" name="author" placeholder="Author" required>
+            <input id="pages" type="number" name="pages" placeholder="Pages" min="1" required>
+            <input id="read" type="checkbox" name="read" value="read">
+            <button id="cancel-btn" formmethod="dialog">Cancel</button>
+            <button id="submit-btn" type="submit">Submit</button>
+        </form>
+    </dialog>
 </body>
 <script src="./script.js"></script>
 </html>

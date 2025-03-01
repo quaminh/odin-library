@@ -4,9 +4,11 @@ body, h1, h2, h3, p {
 
 .book-container {
     display: flex;
+    gap: 5px;
 }
 
 .book-card {
     background-color: cadetblue;
     color: white;
+    padding: 10px;
 }
