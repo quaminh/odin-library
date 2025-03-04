@@ -2,6 +2,34 @@ body, h1, h2, h3, p {
     margin: 0;
 }
 
+.header {
+    background-color: darkcyan;
+    padding: 50px;
+    display: flex;
+    gap: 50px;
+    box-shadow: 0px 0px 12px rgb(99, 113, 119);
+}
+
+.header > h1 {
+    color: white;
+    font-size: 3rem;
+}
+
+#new-book-btn {
+    background-color: rgb(255, 189, 67);
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 50px;
+    padding: 0px 20px;
+    box-shadow: 0px 2px 5px rgb(8, 68, 68);
+    cursor: pointer;
+}
+#new-book-btn:hover {
+    background-color: rgb(255, 202, 105);
+}
+
 .book-container {
     display: flex;
     gap: 5px;
@@ -11,4 +39,8 @@ body, h1, h2, h3, p {
     background-color: cadetblue;
     color: white;
     padding: 10px;
+}
+
+.read {
+    background-color: aquamarine;
 }

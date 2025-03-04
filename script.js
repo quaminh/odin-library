@@ -8,14 +8,7 @@ const readInput = document.querySelector("#read");
 const cancelButton = document.querySelector("#cancel-btn");
 const submitButton = document.querySelector("#submit-btn");
 
-const library = [
-    {
-        title: "BOOK",
-        author: "ME",
-        pages: 1337,
-        read: true
-    }
-];
+const library = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -52,7 +45,9 @@ function renderLibrary() {
         author.textContent = book.author;
         numPages.textContent = book.pages;
         toggleReadBtn.textContent = "Read";
+        toggleReadBtn.classList.add("read-btn");
         deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("delete-btn");
 
         bookCard.appendChild(title);
         bookCard.appendChild(author);
@@ -80,10 +75,22 @@ submitButton.addEventListener("click", (event) => {
     const author = authorInput.value;
     const pages = pagesInput.value;
     const read = readInput.checked;
-    console.log(title, author, pages, read);
     addBookToLibrary(title, author, pages, read);
     resetInputs();
     newBookModal.close();
+});
+
+bookContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("read-btn")) {
+        const parent = event.target.parentElement;
+        library[parent.id].toggleRead();
+        parent.classList.toggle("read");
+    }
+    if (event.target.classList.contains("delete-btn")) {
+        const parent = event.target.parentElement;
+        parent.remove();
+        library.splice(parent.id, 1);
+    }
 });
 
 renderLibrary();
