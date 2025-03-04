@@ -8,9 +8,9 @@ const readInput = document.querySelector("#read");
 const cancelButton = document.querySelector("#cancel-btn");
 const submitButton = document.querySelector("#submit-btn");
 
-const library = [];
+const library = [new Book("Book1", "Author1", 100)];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read=false) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -41,9 +41,10 @@ function renderLibrary() {
 
         bookCard.id = i;
         bookCard.classList.add("book-card");
+        if (book.read) bookCard.classList.add("read");
         title.textContent = book.title;
-        author.textContent = book.author;
-        numPages.textContent = book.pages;
+        author.textContent = `By: ${book.author}`;
+        numPages.textContent = `Pages: ${book.pages}`;
         toggleReadBtn.textContent = "Read";
         toggleReadBtn.classList.add("read-btn");
         deleteBtn.textContent = "Delete";
@@ -71,6 +72,7 @@ newBookButton.addEventListener("click", (event) => {
 
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
+    document.querySelector("form").checkValidity();
     const title = titleInput.value;
     const author = authorInput.value;
     const pages = pagesInput.value;
