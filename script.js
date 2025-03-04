@@ -8,7 +8,7 @@ const readInput = document.querySelector("#read");
 const cancelButton = document.querySelector("#cancel-btn");
 const submitButton = document.querySelector("#submit-btn");
 
-const library = [new Book("Book1", "Author1", 100)];
+const library = [];
 
 function Book(title, author, pages, read=false) {
     this.title = title;
@@ -72,14 +72,18 @@ newBookButton.addEventListener("click", (event) => {
 
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    document.querySelector("form").checkValidity();
-    const title = titleInput.value;
-    const author = authorInput.value;
-    const pages = pagesInput.value;
-    const read = readInput.checked;
-    addBookToLibrary(title, author, pages, read);
-    resetInputs();
-    newBookModal.close();
+    if (document.querySelector("form").checkValidity()) {
+        const title = titleInput.value;
+        const author = authorInput.value;
+        const pages = pagesInput.value;
+        const read = readInput.checked;
+        addBookToLibrary(title, author, pages, read);
+        resetInputs();
+        newBookModal.close();
+    }
+    else {
+        alert("Please fill all the required inputs");
+    }
 });
 
 bookContainer.addEventListener("click", (event) => {

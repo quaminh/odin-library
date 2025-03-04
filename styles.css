@@ -30,6 +30,59 @@ body, h1, h2, h3, p {
     background-color: rgb(255, 202, 105);
 }
 
+dialog {
+    border-radius: 20px;
+    padding: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+form .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+form button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cancel-btn {
+    background-color: rgb(255, 108, 88);
+}
+#cancel-btn:hover {
+    background-color: rgb(255, 81, 58)
+}
+
+#submit-btn {
+    background-color: white;
+}
+#submit-btn:hover {
+    background-color: rgb(222, 251, 255);
+}
+
+#pages {
+    width: 100px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+}
+
 .book-container {
     display: flex;
     gap: 10px;
